@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickApprove - Hands off buyer-vendor approvals at the speed of AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#003366',
+                        'accent': '#66A6FF',
+                        'background-light': '#e6f0ff',
+                        'text-gray': '#555555'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #e6f0ff 0%, #ffffff 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #003366 0%, #66A6FF 100%);
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 51, 102, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .video-overlay:hover {
+            background: rgba(0, 51, 102, 0.2);
+        }
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .play-button:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 1);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.1);
+        }
+        .stats-number {
+            background: linear-gradient(135deg, #003366 0%, #66A6FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-inter bg-white">
+    
+    <!-- @COMPONENT: Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-2xl text-accent mr-3"></i>
+                    <span class="text-xl font-bold text-primary">QuickApprove</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-text-gray hover:text-primary transition-colors">Features</a>
+                    <a href="#how-it-works" class="text-text-gray hover:text-primary transition-colors">How It Works</a>
+                    <a href="#pricing" class="text-text-gray hover:text-primary transition-colors">Pricing</a>
+                </nav>
+                <button class="bg-accent text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-600 transition-colors">
+                    Get Early Access
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-12 items-center min-h-screen py-20">
+                <!-- Left Column - 60% -->
+                <div class="lg:col-span-3 space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl lg:text-6xl font-bold text-primary leading-tight">
+                            Hands off buyer-vendor approvals at the 
+                            <span class="text-accent">speed of AI</span>
+                        </h1>
+                        <p class="text-xl text-text-gray leading-relaxed max-w-2xl">
+                            Stop burning weeks on approval delays. QuickApprove automates your vendor workflow with AI-powered SOW creation, smart Q&A, and autonomous follow-ups that keep projects moving.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-900 transition-colors shadow-lg">
+                            Get Exclusive Pre-Launch Access
+                        </button>
+                        <div class="flex items-center text-text-gray">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+                            <span>Launching Summer 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-8 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold stats-number">60</div>
+                            <div class="text-sm text-text-gray">Days Saved</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold stats-number">25%</div>
+                            <div class="text-sm text-text-gray">Budget Preserved</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold stats-number">$200B+</div>
+                            <div class="text-sm text-text-gray">Annual Market</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - 40% -->
+                <div class="lg:col-span-2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <!-- Demo video displaying workflow dashboard -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675" 
+                             alt="QuickApprove Dashboard Demo" 
+                             class="w-full h-auto rounded-2xl" data-mock-image="true" data-implementation="Replace with actual demo video">
+                        <div class="video-overlay cursor-pointer">
+                            <div class="play-button">
+                                <i class="fas fa-play text-primary text-xl ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Problem Statement -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                    Want to See Something That Scares PMs?
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <i class="fas fa-handshake text-4xl text-accent mb-4"></i>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Initial Agreement</h3>
+                    <p class="text-text-gray">Consensus is reached in meetings. Everyone agrees on the plan—until it's time to act.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <i class="fas fa-pause-circle text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Sudden Stall</h3>
+                    <p class="text-text-gray">Approvals stall. Weeks pass in limbo as decisions await sign-off.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <i class="fas fa-running text-4xl text-yellow-500 mb-4"></i>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Chase Mode</h3>
+                    <p class="text-text-gray">Teams burn time in follow-ups, repeat discussions, and redundant documentation reviews.</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-sm">
+                    <i class="fas fa-chart-line-down text-4xl text-red-600 mb-4"></i>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Lost Value</h3>
+                    <p class="text-text-gray">Delays compound. Projects miss critical windows. Execution suffers along with stakeholder confidence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Problem Statement -->
+
+    <!-- @COMPONENT: Built for How You Work Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                    Built for How You Work
+                </h2>
+                <p class="text-xl text-text-gray max-w-3xl mx-auto">
+                    QuickApprove integrates seamlessly with your existing tools and workflows, making adoption effortless.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-background-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-plug text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Easy Integration</h3>
+                    <p class="text-text-gray">Plug-and-play with Office 365, GSuite, SAP, and DocuSign</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-background-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code-branch text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Managed Version Control</h3>
+                    <p class="text-text-gray">Keep everyone on the same page automatically</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-background-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Smart Project Checks</h3>
+                    <p class="text-text-gray">Catch errors before they slow you down</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-background-light rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-accent"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-primary mb-2">Automated Compliance</h3>
+                    <p class="text-text-gray">Legal peace of mind without manual review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Built for How You Work Section -->
+
+    <!-- @COMPONENT: Feature Showcase -->
+    <section id="features" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                    QuickApprove - VMaaS with AI-agents
+                </h2>
+                <p class="text-xl text-text-gray max-w-3xl mx-auto">
+                    See how our AI-powered features transform your vendor approval workflow
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Feature 1: SOW Creation -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <!-- Professional business meeting discussing contracts -->
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=450" 
+                             alt="SOW Creation and Automatic Engagement" 
+                             class="w-full h-48 object-cover" data-mock-image="true" data-implementation="Replace with SOW Creation demo video">
+                        <div class="video-overlay cursor-pointer">
+                            <div class="play-button">
+                                <i class="fas fa-play text-primary text-lg ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">
+                        SOW Creation & Automatic Engagement
+                    </h3>
+                    <p class="text-text-gray">
+                        AI-assisted writing and smart follow-ups by integrating with existing systems for faster approvals
+                    </p>
+                </div>
+
+                <!-- Feature 2: Smart Q&A -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <!-- AI technology interface with data visualization -->
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=450" 
+                             alt="Super Smart Q&A System" 
+                             class="w-full h-48 object-cover" data-mock-image="true" data-implementation="Replace with Smart Q&A demo video">
+                        <div class="video-overlay cursor-pointer">
+                            <div class="play-button">
+                                <i class="fas fa-play text-primary text-lg ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">
+                        Super Smart Q&A
+                    </h3>
+                    <p class="text-text-gray">
+                        Built in SME of your projects to answer questions instantaneously
+                    </p>
+                </div>
+
+                <!-- Feature 3: Autonomous Do-er -->
+                <div class="feature-card bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="relative mb-6 rounded-xl overflow-hidden">
+                        <!-- Automated workflow dashboard showing task completion -->
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=450" 
+                             alt="Autonomous Do-er Workflow" 
+                             class="w-full h-48 object-cover" data-mock-image="true" data-implementation="Replace with Autonomous Do-er demo video">
+                        <div class="video-overlay cursor-pointer">
+                            <div class="play-button">
+                                <i class="fas fa-play text-primary text-lg ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-3">
+                        Autonomous Do-er
+                    </h3>
+                    <p class="text-text-gray">
+                        Give your agents layman term descriptions of what needs to get done and watch them work - like your favorite assistant, without ever taking a coffee break
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Feature Showcase -->
+
+    <!-- @COMPONENT: Additional Features -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                        Complete Visibility & Control
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-chart-bar text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-2">Spend Tracking</h3>
+                                <p class="text-text-gray">Gain complete visibility into project progress, costs, and key metrics via automated reporting</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-star text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-primary mb-2">Vendor Performance</h3>
+                                <p class="text-text-gray">Ensure adherence to regulatory requirements and internal policies with AI-driven monitoring and documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <!-- Professional dashboard displaying analytics and metrics -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Spend Tracking and Vendor Performance Dashboard" 
+                         class="rounded-2xl shadow-lg w-full h-auto" data-mock-image="true">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Additional Features -->
+
+    <!-- @COMPONENT: Pricing Preview -->
+    <section id="pricing" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                    Choose Your Plan
+                </h2>
+                <p class="text-xl text-text-gray max-w-3xl mx-auto">
+                    Launching Summer 2025. Get exclusive early access and special pricing.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Starter</h3>
+                    <p class="text-text-gray mb-6">Basic approvals + analytics</p>
+                    <div class="text-3xl font-bold text-primary mb-6">Coming Soon</div>
+                    <ul class="space-y-3 text-text-gray">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Basic approval workflow</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Analytics dashboard</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Email notifications</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-accent relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm">
+                        Most Popular
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Pro</h3>
+                    <p class="text-text-gray mb-6">Fully integrated feature set for teams</p>
+                    <div class="text-3xl font-bold text-primary mb-6">Coming Soon</div>
+                    <ul class="space-y-3 text-text-gray">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>All Starter features</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>AI-powered SOW creation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Smart Q&A system</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Autonomous follow-ups</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Enterprise</h3>
+                    <p class="text-text-gray mb-6">Custom AI + dedicated support</p>
+                    <div class="text-3xl font-bold text-primary mb-6">Coming Soon</div>
+                    <ul class="space-y-3 text-text-gray">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>All Pro features</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Custom AI training</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Dedicated support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-2"></i>Advanced compliance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Pricing Preview -->
+
+    <!-- @COMPONENT: Pre-Launch Signup -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                Get Exclusive Pre-Launch Access
+            </h2>
+            <p class="text-xl text-text-gray mb-8 max-w-2xl mx-auto">
+                Join our early access program and be the first to experience the future of vendor approvals. Limited spots available.
+            </p>
+            
+            <form class="max-w-md mx-auto space-y-4" data-implementation="Connect to email capture service">
+                <div>
+                    <input type="email" placeholder="Enter your work email" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                </div>
+                <div>
+                    <input type="text" placeholder="Company name" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                </div>
+                <div>
+                    <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent" required>
+                        <option value="">Team size</option>
+                        <option value="1-10">1-10 employees</option>
+                        <option value="11-50">11-50 employees</option>
+                        <option value="51-200">51-200 employees</option>
+                        <option value="201-1000">201-1000 employees</option>
+                        <option value="1000+">1000+ employees</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-900 transition-colors">
+                    Get Early Access
+                </button>
+            </form>
+            
+            <div class="mt-8 flex items-center justify-center space-x-6 text-sm text-text-gray">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    <span>Secure & Private</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    <span>Summer 2025 Launch</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-users mr-2"></i>
+                    <span>Limited Spots</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Pre-Launch Signup -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-2xl text-accent mr-3"></i>
+                        <span class="text-xl font-bold">QuickApprove</span>
+                    </div>
+                    <p class="text-gray-300">
+                        Hands off buyer-vendor approvals at the speed of AI. Transform your workflow today.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#features" class="hover:text-accent transition-colors">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-accent transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-accent transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-accent transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 QuickApprove. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        (function() {
+            // Video play functionality
+            document.querySelectorAll('.video-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function() {
+                    // TODO: Implement video playback functionality
+                    console.log('Video play triggered');
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form submission handler
+            document.querySelector('form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                // TODO: Implement form submission to email capture service
+                console.log('Form submitted');
+                alert('Thank you for your interest! We\'ll be in touch soon.');
+            });
+        })();
+    </script>
+</body>
+</html>
