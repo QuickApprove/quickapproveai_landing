@@ -477,19 +477,20 @@ export default function Home() {
           <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Input
+                type="text"
+                placeholder="Full name *"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                required
+              />
+              <Input
                 type="email"
                 placeholder="Email address *"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 required
-              />
-              <Input
-                type="text"
-                placeholder="Full name (optional)"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
               />
               <Input
                 type="text"
@@ -552,16 +553,16 @@ export default function Home() {
                 Hands off buyer-vendor approvals at the speed of AI. Transform your vendor management with intelligent automation.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-brand-blue transition-colors">
+                <a href="https://www.linkedin.com/company/quickapprove/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-brand-blue transition-colors">
                   <span className="sr-only">LinkedIn</span>
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z"/>
                   </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-brand-blue transition-colors">
-                  <span className="sr-only">Twitter</span>
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                <a href="mailto:me@loganmarek.com" className="text-gray-400 hover:text-brand-blue transition-colors">
+                  <span className="sr-only">Email</span>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 13.065l-11.2-8.065h22.4l-11.2 8.065zm11.2-9.065h-22.4c-.442 0-.8.358-.8.8v16.4c0 .442.358.8.8.8h22.4c.442 0 .8-.358.8-.8v-16.4c0-.442-.358-.8-.8-.8zm-1.2 2.235v13.365h-20v-13.365l10 7.2 10-7.2z"/>
                   </svg>
                 </a>
               </div>

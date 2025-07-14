@@ -24,6 +24,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         signup: { id: signup.id, email: signup.email, name: signup.name, company: signup.company } 
       });
     } catch (error) {
+      console.error(error); // <-- Add this line
       if (error instanceof z.ZodError) {
         return res.status(400).json({ 
           message: "Invalid email format",
