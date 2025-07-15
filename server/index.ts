@@ -52,9 +52,8 @@ app.use((req, res, next) => {
   // doesn't interfere with the other routes
   if (app.get("env") === "development") {
     await setupVite(app, server);
-  } else {
-    serveStatic(app);
   }
+  // In production, do NOT serve static files
 
   // ALWAYS serve the app on port 5000
   // this serves both the API and the client.
