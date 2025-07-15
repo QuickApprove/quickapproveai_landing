@@ -1,0 +1,465 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickApprove - Hands off buyer-vendor approvals at the speed of AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-primary': '#003366',
+                        'sky-accent': '#66A6FF',
+                        'blue-light': '#e6f0ff',
+                        'gray-soft': '#555555'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-white font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-check-circle text-sky-accent text-2xl mr-2"></i>
+                        <span class="text-navy-primary font-bold text-xl">QuickApprove</span>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#features" class="text-gray-soft hover:text-navy-primary transition-colors">Features</a>
+                        <a href="#how-it-works" class="text-gray-soft hover:text-navy-primary transition-colors">How It Works</a>
+                        <a href="#about" class="text-gray-soft hover:text-navy-primary transition-colors">About</a>
+                        <a href="#signup" class="bg-sky-accent text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">Get Early Access</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-soft hover:text-navy-primary">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-light to-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                <!-- Left Column - Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-4xl lg:text-5xl font-bold text-navy-primary leading-tight">
+                            Hands off buyer-vendor approvals at the speed of AI
+                        </h1>
+                        <p class="text-xl text-gray-soft leading-relaxed">
+                            Stop wasting weeks on approval workflows. QuickApprove's AI agents handle the entire process from SOW creation to final sign-off, integrating seamlessly with your existing tools.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="bg-navy-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 transition-colors flex items-center justify-center">
+                                <i class="fas fa-rocket mr-2"></i>
+                                Get Exclusive Pre-Launch Access
+                            </button>
+                            <div class="text-sm text-gray-soft text-center sm:text-left pt-2">
+                                <i class="fas fa-calendar-alt mr-1"></i>
+                                Early access for Summer 2025 MVP
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Demo Video -->
+                <div class="lg:col-span-3">
+                    <div class="relative bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
+                        <!-- Video placeholder with embedded player styling -->
+                        <div class="aspect-video bg-gray-800 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-play-circle text-6xl mb-4 text-sky-accent"></i>
+                                <h3 class="text-xl font-semibold mb-2">QuickApprove Demo</h3>
+                                <p class="text-gray-300">See how AI transforms your approval workflow</p>
+                                <!-- TODO: Embed actual demo video player here -->
+                            </div>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4">
+                            <div class="flex items-center justify-between text-white">
+                                <div class="flex items-center space-x-2">
+                                    <button class="hover:text-sky-accent transition-colors">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <span class="text-sm">0:00 / 2:30</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="hover:text-sky-accent transition-colors">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                    <button class="hover:text-sky-accent transition-colors">
+                                        <i class="fas fa-expand"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Flow Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy-primary mb-4">Sound Familiar?</h2>
+                <p class="text-xl text-gray-soft max-w-3xl mx-auto">The approval process that's supposed to streamline your workflow often becomes the biggest bottleneck</p>
+            </div>
+            
+            <!-- Problem Flow -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Initial Agreement</h3>
+                    <p class="text-gray-soft">Consensus is reached in meetings. Everyone agrees on the plan—until it's time to act.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-pause-circle text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Sudden Stall</h3>
+                    <p class="text-gray-soft">Approvals stall. Weeks pass in limbo as decisions await sign-off.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-running text-orange-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Chase Mode</h3>
+                    <p class="text-gray-soft">Teams burn time in follow-ups, repeat discussions, and redundant documentation reviews.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-red-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line-down text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Lost Value</h3>
+                    <p class="text-gray-soft">Delays compound. Projects miss critical windows. Execution suffers along with stakeholder confidence.</p>
+                </div>
+            </div>
+
+            <!-- Impact Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center bg-red-50 rounded-xl p-8">
+                    <div class="text-4xl font-bold text-red-600 mb-2">60</div>
+                    <div class="text-lg font-semibold text-navy-primary">Days Wasted</div>
+                    <p class="text-gray-soft mt-2">Average approval cycle time</p>
+                </div>
+                <div class="text-center bg-orange-50 rounded-xl p-8">
+                    <div class="text-4xl font-bold text-orange-600 mb-2">25%</div>
+                    <div class="text-lg font-semibold text-navy-primary">Budget Burned</div>
+                    <p class="text-gray-soft mt-2">On administrative overhead</p>
+                </div>
+                <div class="text-center bg-gray-50 rounded-xl p-8">
+                    <div class="text-4xl font-bold text-gray-600 mb-2">0</div>
+                    <div class="text-lg font-semibold text-navy-primary">Happy Stakeholders</div>
+                    <p class="text-gray-soft mt-2">When projects are delayed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-light to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy-primary mb-4">QuickApprove - VMaaS with AI agents</h2>
+                <p class="text-xl text-gray-soft max-w-3xl mx-auto">Vendor Management as a Service powered by intelligent AI agents that handle your entire approval workflow</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-sky-accent/10 rounded-lg p-3 mr-4">
+                                <i class="fas fa-file-contract text-sky-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-navy-primary">SOW Creation & Automatic Engagement</h3>
+                        </div>
+                        <p class="text-gray-soft mb-6">AI-assisted writing and smart follow-ups by integrating with existing systems for faster approvals</p>
+                        <!-- Embedded video player -->
+                        <div class="bg-gray-900 rounded-lg aspect-video flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-play-circle text-3xl mb-2 text-sky-accent"></i>
+                                <p class="text-sm">SOW Creation Demo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-sky-accent/10 rounded-lg p-3 mr-4">
+                                <i class="fas fa-brain text-sky-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-navy-primary">Super Smart Q&A</h3>
+                        </div>
+                        <p class="text-gray-soft mb-6">Built-in SME of your projects to answer questions instantaneously</p>
+                        <!-- Embedded video player -->
+                        <div class="bg-gray-900 rounded-lg aspect-video flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-play-circle text-3xl mb-2 text-sky-accent"></i>
+                                <p class="text-sm">Smart Q&A Demo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-sky-accent/10 rounded-lg p-3 mr-4">
+                                <i class="fas fa-chart-bar text-sky-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-navy-primary">Spend Tracking</h3>
+                        </div>
+                        <p class="text-gray-soft">Gain complete visibility into project progress, costs, and key metrics via automated reporting</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-sky-accent/10 rounded-lg p-3 mr-4">
+                                <i class="fas fa-shield-alt text-sky-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-navy-primary">Vendor Performance</h3>
+                        </div>
+                        <p class="text-gray-soft">Ensure adherence to regulatory requirements and internal policies with AI-driven monitoring and documentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built for How You Work -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy-primary mb-4">Built for How You Work</h2>
+                <p class="text-xl text-gray-soft max-w-3xl mx-auto">Seamlessly integrate with your existing tools and workflows</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center bg-blue-light/30 rounded-xl p-8">
+                    <div class="bg-white rounded-lg p-4 inline-block mb-4">
+                        <i class="fas fa-plug text-sky-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Easy Integration</h3>
+                    <p class="text-gray-soft">Plug-and-play with Office 365, GSuite, SAP, and DocuSign</p>
+                </div>
+                
+                <div class="text-center bg-blue-light/30 rounded-xl p-8">
+                    <div class="bg-white rounded-lg p-4 inline-block mb-4">
+                        <i class="fas fa-sync text-sky-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Managed Version Control</h3>
+                    <p class="text-gray-soft">Keep everyone on the same page automatically</p>
+                </div>
+                
+                <div class="text-center bg-blue-light/30 rounded-xl p-8">
+                    <div class="bg-white rounded-lg p-4 inline-block mb-4">
+                        <i class="fas fa-search text-sky-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Smart Project Checks</h3>
+                    <p class="text-gray-soft">Catch errors before they slow you down</p>
+                </div>
+                
+                <div class="text-center bg-blue-light/30 rounded-xl p-8">
+                    <div class="bg-white rounded-lg p-4 inline-block mb-4">
+                        <i class="fas fa-gavel text-sky-accent text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-navy-primary mb-2">Automated Compliance</h3>
+                    <p class="text-gray-soft">Legal peace of mind without manual review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-20 bg-gradient-to-br from-blue-light to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy-primary mb-4">How QuickApprove Drives Value</h2>
+                <p class="text-xl text-gray-soft max-w-3xl mx-auto">Transform your approval process from a bottleneck into a competitive advantage</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="text-4xl font-bold text-sky-accent mb-2">$200B+</div>
+                        <div class="text-lg font-semibold text-navy-primary mb-2">Annual Spend</div>
+                        <p class="text-gray-soft">Spent on vendor services in mid-to-enterprise organizations</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="text-4xl font-bold text-sky-accent mb-2">Weeks</div>
+                        <div class="text-lg font-semibold text-navy-primary mb-2">Time Lost</div>
+                        <p class="text-gray-soft">Approvals cost teams weeks per project</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <div class="text-4xl font-bold text-sky-accent mb-2">↑</div>
+                        <div class="text-lg font-semibold text-navy-primary mb-2">Growing Demand</div>
+                        <p class="text-gray-soft">Increasing need for workflow automation and AI tools</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <p class="text-lg text-gray-soft mb-8">Legacy Industries Ripe for Disruption: Retail, Entertainment, Financial Services, Manufacturing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="signup" class="py-20 bg-navy-primary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Get Exclusive Pre-Launch Access</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Join forward-thinking companies preparing for the future of vendor management. Early access begins Summer 2025.</p>
+            
+            <div class="bg-white rounded-xl p-8 max-w-md mx-auto">
+                <form class="space-y-6">
+                    <div>
+                        <input type="email" placeholder="Enter your work email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-accent focus:border-transparent outline-none" required>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Company name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-accent focus:border-transparent outline-none" required>
+                    </div>
+                    <div>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-accent focus:border-transparent outline-none">
+                            <option>Company size</option>
+                            <option>1-10 employees</option>
+                            <option>11-50 employees</option>
+                            <option>51-200 employees</option>
+                            <option>201-1000 employees</option>
+                            <option>1000+ employees</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-sky-accent text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        Get Early Access
+                    </button>
+                </form>
+                <p class="text-xs text-gray-soft mt-4">By signing up, you'll be among the first to experience QuickApprove when it launches in Summer 2025.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-sky-accent text-2xl mr-2"></i>
+                        <span class="text-white font-bold text-xl">QuickApprove</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Hands off buyer-vendor approvals at the speed of AI. Transforming how enterprises manage vendor relationships.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-sky-accent transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-sky-accent transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 QuickApprove. All rights reserved. Innovative. Passionate. Agile.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        (function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.querySelector('.md\\:block');
+            
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    // TODO: Implement mobile menu toggle functionality
+                    console.log('Mobile menu toggle clicked');
+                });
+            }
+        })();
+
+        // Smooth scrolling for anchor links
+        (function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+
+        // Form submission handler
+        (function() {
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement form submission logic, API call to capture email
+                    console.log('Form submitted');
+                    
+                    // Simple feedback
+                    const button = this.querySelector('button[type="submit"]');
+                    const originalText = button.textContent;
+                    button.textContent = 'Thanks! We\'ll be in touch.';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.disabled = false;
+                    }, 3000);
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
