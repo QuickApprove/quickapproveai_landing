@@ -2,9 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
 import { 
   Handshake, 
   Pause, 
@@ -26,44 +23,38 @@ import autonomousVideo from "@assets/autonomous_1752505821368.mov";
 import superSmartVideo from "@assets/supersmart2_1752505821369.mp4";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
+  const [botcheck, setBotcheck] = useState(""); // honeypot
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { toast } = useToast();
-  const queryClient = useQueryClient();
 
-  const signupMutation = useMutation({
-    mutationFn: async (data: { email: string; name?: string; company?: string }) => {
-      return await apiRequest("POST", "/api/signup", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Success!",
-        description: "You've been added to our pre-launch waitlist.",
-      });
-      setEmail("");
-      setName("");
-      setCompany("");
-      queryClient.invalidateQueries({ queryKey: ["/api/signups"] });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to join waitlist. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      signupMutation.mutate({ 
-        email, 
-        name: name || undefined, 
-        company: company || undefined 
-      });
+    if (botcheck) return; // honeypot triggered
+    setIsSubmitting(true);
+    const formData = {
+      access_key: "a488127b-1dea-4366-851a-b9f6401f06a3",
+      name,
+      email,
+      company,
+      botcheck,
+    };
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    setIsSubmitting(false);
+    if (response.ok) {
+      setShowSuccess(true);
+      setName("");
+      setEmail("");
+      setCompany("");
+      setBotcheck("");
+      setTimeout(() => setShowSuccess(false), 4000);
     }
   };
 
@@ -473,8 +464,19 @@ export default function Home() {
           <p className="text-xl text-blue-100 mb-8">
             Be among the first to experience the future of vendor management. MVP launching Summer 2025.
           </p>
-          <form action="https://api.web3forms.com/submit" method="POST" className="max-w-4xl mx-auto">
+          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
             <input type="hidden" name="access_key" value="a488127b-1dea-4366-851a-b9f6401f06a3" />
+            {/* Honeypot field */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              value={botcheck}
+              onChange={e => setBotcheck(e.target.value)}
+              className="hidden"
+              style={{ display: "none" }}
+              tabIndex={-1}
+              autoComplete="off"
+            />
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Input
                 type="text"
@@ -482,6 +484,8 @@ export default function Home() {
                 placeholder="Full name *"
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 required
+                value={name}
+                onChange={e => setName(e.target.value)}
               />
               <Input
                 type="email"
@@ -489,24 +493,34 @@ export default function Home() {
                 placeholder="Email address *"
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <Input
                 type="text"
                 name="company"
                 placeholder="Company (optional)"
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
+                value={company}
+                onChange={e => setCompany(e.target.value)}
               />
               <Button
                 type="submit"
                 className="bg-brand-blue text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold whitespace-nowrap"
+                disabled={isSubmitting}
               >
-                Join Waitlist
+                {isSubmitting ? "Joining..." : "Join Waitlist"}
               </Button>
             </div>
           </form>
           <p className="text-blue-200 text-sm mt-4">
             No spam. Unsubscribe anytime. We respect your privacy.
           </p>
+          {showSuccess && (
+            <div className="mt-4 bg-green-600 text-white px-6 py-4 rounded shadow-lg inline-block">
+              Thank you! Your form has been submitted.
+            </div>
+          )}
         </div>
       </section>
 
