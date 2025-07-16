@@ -473,44 +473,37 @@ export default function Home() {
           <p className="text-xl text-blue-100 mb-8">
             Be among the first to experience the future of vendor management. MVP launching Summer 2025.
           </p>
-          
-          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
+          <form action="https://api.web3forms.com/submit" method="POST" className="max-w-4xl mx-auto">
+            <input type="hidden" name="access_key" value="a488127b-1dea-4366-851a-b9f6401f06a3" />
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Input
                 type="text"
+                name="name"
                 placeholder="Full name *"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 required
               />
               <Input
                 type="email"
+                name="email"
                 placeholder="Email address *"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
                 required
               />
               <Input
                 type="text"
+                name="company"
                 placeholder="Company (optional)"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
                 className="flex-1 px-4 py-3 rounded-lg border-0 text-brand-navy placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-blue"
               />
               <Button
                 type="submit"
-                disabled={signupMutation.isPending}
-                className="bg-brand-blue text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold whitespace-nowrap disabled:opacity-50"
+                className="bg-brand-blue text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition-all duration-200 font-semibold whitespace-nowrap"
               >
-                {signupMutation.isPending ? "Joining..." : "Join Waitlist"}
+                Join Waitlist
               </Button>
             </div>
           </form>
-          
-
-          
           <p className="text-blue-200 text-sm mt-4">
             No spam. Unsubscribe anytime. We respect your privacy.
           </p>
